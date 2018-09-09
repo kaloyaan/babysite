@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js" charset="utf-8"></script>
+    <script src="https://unpkg.com/react@16.5.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16.5.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/react-router-dom@4.3.1/umd/react-router-dom.js"></script>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-sm-6">
+        <img src="https://vignette.wikia.nocookie.net/someordinarygamers/images/f/f8/90s-gifs-dancing-baby.gif/revision/latest?cb=20150315032807" class="img-fluid" alt="Responsive image">
+      </div>
+      <div class="col-sm-6">
+        <img src="https://vignette.wikia.nocookie.net/someordinarygamers/images/f/f8/90s-gifs-dancing-baby.gif/revision/latest?cb=20150315032807" class="img-fluid" alt="Responsive image">
+      </div>
+    </div>
+    <div class="mx-auto" style="width: 200px;">
+      <h1>Welcome to my site.</h1>
+    </div>
+    <div id="content"></div>
+  </body>
+  <script type="text/babel">
+    class Table extends React.Component{
+      constructor(){
+        super()
+        this.state = {
+          rows: [
+            { id: 1, firstName: 'Kaloyan', lastName: 'Kolev'},
+            { id: 2, firstName: 'Georgi', lastName: 'Georgev'}
+          ]
+        }
+      }
+
+      render() {
+        return (
+          <div>
+          <table className="table">
+          {
+            this.state.rows.map(element => {
+              return (<tr>
+                <td>{element.id}</td>
+                <td>{element.firstName}</td>
+                <td>{element.lastName}</td>
+                </tr>)
+            })
+          }
+          </table>
+          <div class="mx-auto">
+            <button className="btn-danger" onClick={() => this.addNew()}>Add</button>
+          </div>
+          </div>)
+      }
+
+      addNew(){
+        alert('Adding new')
+      }
+    }
+/*
+    class Form extends React.Component {
+      constructor(){
+        super()
+      }
+
+      render() {
+        return (
+          <div>
+            <div>
+              First Name:<input type="text" /><br/>
+              Last Name:<input type="text" /><br/>
+        )
+      }
+    }
+    */
+  </script>
+  <script type="text/babel">
+    ReactDOM.render(<Table />, document.getElementById("content"));
+  </script>
+</html>
